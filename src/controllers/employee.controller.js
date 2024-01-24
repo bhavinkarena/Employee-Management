@@ -28,19 +28,8 @@ const generateAccessAndRefereshTokens = async (empId) => {
 };
 
 const registerEmp = asyncHandler(async (req, res) => {
-  // get user details from frontend
-  // validation - not empty
-  // check if user already exists: username, email
-  // check for images, check for avatar
-  // upload them to cloudinary, avatar
-  // create user object - create entry in db
-  // remove password and refresh token field from response
-  // check for user creation
-  // return res
 
-  const { firstname, lastname, DOB, phone, email, favorite, password, role } =
-    req.body;
-  //console.log("email: ", email);
+  const { firstname, lastname, DOB, phone, email, favorite, password, role } = req.body;
 
   if (
     [firstname, DOB, phone, email, password].some(
@@ -60,10 +49,7 @@ const registerEmp = asyncHandler(async (req, res) => {
       "Employee with email or phone number already exists"
     );
   }
-  //console.log(req.files);
 
-  // const avatarLocalPath = req.files?.avatar[0]?.path;
-  // const coverImageLocalPath = req.files?.profileImage[0]?.path;
   let flag = false;
   let coverImageLocalPath;
   if (
@@ -79,9 +65,7 @@ const registerEmp = asyncHandler(async (req, res) => {
     console.log(coverImageLocalPath);
   }
 
-  // const avatar = await uploadOnCloudinary(avatarLocalPath)
   const profileimage = await uploadOnCloudinary(coverImageLocalPath, flag);
-  // console.log(profileimage)
 
   const emp = await Emp.create({
     firstname,
@@ -94,7 +78,6 @@ const registerEmp = asyncHandler(async (req, res) => {
     password,
     role,
   });
-  // console.log(emp)
   const createdUser = await Emp.findById(emp._id).select(
     "-password -refreshToken"
   );

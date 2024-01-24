@@ -9,11 +9,6 @@ import {
   registerEmp,
   updateEmpDetails,
   updateProfileImage,
-  // refreshAccessToken,
-  // updateUserAvatar,
-  // updateUserCoverImage,
-  // getUserChannelProfile,
-  // getWatchHistory
 } from "../controllers/employee.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
