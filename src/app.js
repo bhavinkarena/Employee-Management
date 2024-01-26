@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser"
 const app = express()
 
 app.get("/",(req,res)=>{
-    res.send("heyyy")
+    res.send("HR Manager")
 })
 
 app.use(cors({
@@ -30,6 +30,6 @@ app.use("/api/v1", EmpRouter)
 app.use("/api/v2",Leave)
 app.use("/api/v3",Attendance)
 
-// http://localhost:8000/api/v1/users/register
+// http://localhost:8084/api/v1/emp/register
 
 export { app }

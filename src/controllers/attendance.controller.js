@@ -108,5 +108,8 @@ const getEmpAttendance = asyncHandler(async (req, res) => {
   }
 });
 
-
-export { createAttendance,getCurrentEmpAttendance,getEmpAttendance };
+export { 
+  createAttendance,
+  getCurrentEmpAttendance,
+  getEmpAttendance
+ };
